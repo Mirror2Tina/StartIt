@@ -46,9 +46,10 @@
         	<phone:Pivot Margin="0" Title="StartIt">
         		<phone:PivotItem CacheMode="{x:Null}" Header="Draw">
         			<Grid>
-        				<Button Content="API" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Width="135"/>
-        				<Button Content="Sample" HorizontalAlignment="Left" Margin="244,39,0,0" VerticalAlignment="Top"/>
-        			</Grid>
+        				<Button Name="APISupport_Button" Content="API" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Width="135" Click="APISupport_Button_Click"/>
+        				<Button x:Name="FreeDraw" Content="FreeDraw" HorizontalAlignment="Left" Margin="244,39,0,0" VerticalAlignment="Top" Width="147" Click="FreeDraw_Click"/>
+                        <Button x:Name="Tree_Button" Content="Tree" HorizontalAlignment="Left" Margin="35,134,0,0" VerticalAlignment="Top" Width="135" Click="Tree_Button_Click"/>
+                    </Grid>
         		</phone:PivotItem>
         		<phone:PivotItem CacheMode="{x:Null}" Header="item2">
         			<Grid/>

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<!--
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+       
+    </head>
+    <body style="width:100%">       
+    <section><header><h1>画矩形</h1></header><canvas id="canvas21" width="320" height="300"></canvas></section>
+    <section><header><h1>清除矩形</h1></header><canvas id="canvas22" width="320" height="300"></canvas></section>
+
+    <section><header><h1>绘制路径</h1></header><canvas id="canvas23" width="320" height="300"></canvas></section>
+    <section><header><h1>画圆()</h1></header><canvas id="canvas0" width="320" height="300"></canvas></section>
+
+    <section><header><h1>画线test(lineTo moveTo)</h1></header><canvas id="canvas8" width="320" height="300"></canvas></section>
+    <section><header><h1>画线demo(lineTo moveTo)</h1></header><canvas id="canvas1" width="320" height="300"></canvas></section>
+
+    <section><header><h1>贝塞尔曲线test（bezierCurveTo）</h1></header><canvas id="canvas24" width="320" height="300"></canvas></section>
+    <section><header><h1>贝塞尔曲线demo（bezierCurveTo）</h1></header><canvas id="canvas2" width="320" height="300"></canvas></section>
+
+
+    <section><header><h1>线性test（createLinearGradient addColorStop）</h1></header><canvas id="canvas25" width="320" height="300"></canvas></section>
+    <section><header><h1>线性demo（createLinearGradient addColorStop）</h1></header><canvas id="canvas3" width="320" height="300"></canvas></section>
+
+    <section><header><h1>发散test（createRadialGradient）</h1></header><canvas id="canvas26" width="320" height="300"></canvas></section>
+    <section><header><h1>发散demo（createRadialGradient）</h1></header><canvas id="canvas4" width="320" height="300"></canvas></section>
+
+    <section><header><h1>平移 test（translate）缩放（scale） 旋转（rotate）</h1></header><canvas id="canvas5" width="320" height="300"></canvas></section>
+    <section><header><h1>平移 demo（translate）缩放（scale） 旋转（rotate）</h1></header><canvas id="canvas6" width="320" height="300"></canvas></section>
+    <section><header><h1>坐标与路径的结合使用</h1></header><canvas id="canvas7" width="320" height="300"></canvas></section>
+    <section><header><h1>矩阵变换</h1></header><canvas id="canvas9" width="320" height="300"></canvas></section>
+   
+    <section><header><h1>图形组合叠加(globalCompositeOperation)</h1></header><canvas id="canvas10" width="320" height="300"></canvas></section>
+   
+    <section><header><h1>给图像绘制阴影test shadowOffsetX(阴影的横向位移量) shadowOffsetY(盈盈的纵向位移量) shadowColor（阴影的颜色） shadowBlur（阴影的模糊范围）</h1></header><canvas id="canvas27" width="320" height="300"></canvas></section>
+    <section><header><h1>给图像绘制阴影demo shadowOffsetX(阴影的横向位移量) shadowOffsetY(盈盈的纵向位移量) shadowColor（阴影的颜色） shadowBlur（阴影的模糊范围）</h1></header><canvas id="canvas11" width="320" height="300"></canvas></section>
+ 
+    <section><header><h1>绘制图像drawImage(image,x,y)</h1></header><canvas id="canvas28" width="320" height="300"></canvas></section>
+    <section><header><h1>绘制图像drawImage(image,x,y,w,h)</h1></header><canvas id="canvas12" width="320" height="300"></canvas></section>
+    <section><header><h1>绘制局部图像drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh)</h1></header><canvas id="canvas13" width="320" height="300"></canvas></section>
+
+    <section><header><h1>图像平铺</h1></header><canvas id="canvas14" width="320" height="300"></canvas></section>
+    <section><header><h1>图像裁剪clip</h1></header><canvas id="canvas15" width="320" height="300"></canvas></section>
+    <section><header><h1>像素处理getImageData</h1></header><canvas id="canvas16" width="320" height="300"></canvas></section>
+
+    <section><header><h1>绘制文字fillText strokeText</h1></header><canvas id="canvas17" width="320" height="300"></canvas></section>
+    <section><header><h1>绘图状态的保存save与恢复restore</h1></header><canvas id="canvas18" width="320" height="300"></canvas></section>
+    <section><header><h1>保存文件canvas.toDataURL</h1></header><canvas id="canvas19" width="320" height="300"></canvas></section>
+    <section><header><h1>简单动画</h1></header><canvas id="canvas20" width="320" height="300"></canvas></section>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+         <script type="text/javascript" src="Model/DrawAPI/drawAPI.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>

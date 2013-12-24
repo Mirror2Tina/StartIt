@@ -24,7 +24,17 @@ namespace StartIt
 
         private void APISupport_Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ShowCanvasAPI.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ShowSample.xaml?path=Assets/www/Model/DrawAPI/HTML5CanvasAPI.html", UriKind.Relative));
+        }
+
+        private void Tree_Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ShowSample.xaml?path=Assets/www/Model/DrawTree/canvas-tree.html", UriKind.Relative));
+        }
+
+        private void FreeDraw_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ShowSample.xaml?path=Assets/www/Model/FreeDraw/html5-canvas-drawing-app.html", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>画面的递归绘图实例————树</title>
+    <meta name="keywords" content="html5 canvas,html5 绘图实例,canvas 树,递归绘图,html5,小天地,大世界,刘洋的博客"/>
+    <meta name="description" content="HTML 5 canvas低级别和立即模式系统。在立即模式绘图中，你可以立即忘记刚刚执行的绘图命令，或者叠加多个绘图命令。这对在画面中使用高密度、递归的绘图函数（如不规则碎片形）特别有用。下文，将会讲解通过canvas的递归绘图来实现一棵大树的图形。小天地,大世界,刘洋的博客"/>
+    <link rel="stylesheet" href="http://www.lyblog.net/php/style/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://www.lyblog.net/php/style/bootstrap/js/google-code-prettify/prettify.css"/>
+    <style type="text/css">
+        #top_info{width:100%;height:30px;line-height:30px;background:#a0b3d6;border-top:5px solid #06C;position:fixed;top:0;left:0;opacity:.8;filter:alpha(opacity=80);_position:absolute;_top:expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);_left:expression(documentElement.scrollLeft+documentElement.clientWidth-this.offsetWidth-200);z-index:100}#top_info{width:100%;min-width:1000px;width:e­xpression(document.body.clientWidth < 1000? "1000px":"auto");height:80px;overflow:hidden;position:static}#top_info h1{float:left;width:45%;margin-left:5%;height:60px;line-height:60px;font-size:290%;color:white;text-shadow:5px 5px 5px #ccc}#return_home{float:left;width:45%;margin-right:5%}#top_navi{float:left;clear:both;margin-left:10%;width:25%;height:20px;line-height:20px}#return_home #nav{width:100%;float:left;margin-top:45px}#nav li{float:left;font-size:14px;padding:.5%;list-style:none}#nav li a{text-shadow:3px 3px 3px black;color:white}#nav li a:hover{color:#0f0}#go_home{float:right}/*版权声明样式*/ #copyright{width:100%;min-width:1000px;height:80px;background:none repeat scroll 0 0 #a0b3d6;border-bottom:5px solid #06c;border-top:1px solid #34538b}#cp-left,#cp-right{width:45%;float:left;line-height:30px}#cp-left{margin-left:5%;text-align:left}#cp-right{margin-right:5%;text-align:right}.clear{clear:both;font-size:0;height:0;line-height:0}
+    </style>
+    <style type="text/css">
+        #canvas {
+            border: 1px solid #ccc;
+            margin: 30px auto;
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        var drawTree = function (ctx, startX, startY, length, angle, depth, branchWidth) {
+            var rand = Math.random,
+                    newLength, newAngle, newDepth, maxBranch = 3,
+                    endX, endY, maxAngle = 2 * Math.PI / 4,
+                    subBranches, lenShrink;
+            // 分枝向左还是向右，主要是取决于角度 angle
+            // 树根绘制角度为 π/2 （即绘制方向竖直向上）
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            endX = startX + length * Math.cos(angle);
+            endY = startY + length * Math.sin(angle);
+
+            ctx.lineCap = 'round';
+            ctx.lineWidth = branchWidth;
+            ctx.lineTo(endX, endY);
+
+            // 如果到达了树枝的末端，就把描边的颜色改为绿色
+            if (depth <= 2) {
+                ctx.strokeStyle = 'rgb(0,' + (((rand() * 64) + 128) >> 0) + ',0)';
+            }
+            // 否则就把颜色改为树干的颜色
+            else {
+                ctx.strokeStyle = 'rgb(' + (((rand() * 64) + 64) >> 0) + ',50,25)';
+            }
+            ctx.stroke();
+
+            // 减小分枝的递归次数
+            newDepth = depth - 1;
+            // 如果分枝的递归次数为零，则直接退出
+            if (!newDepth) {
+                return;
+            }
+            // 当前树干分支分1~3枝
+            // 加入一些随机的长度、宽度和角度看起来更加自然。
+            subBranches = (rand() * (maxBranch - 1)) + 1;
+            // 减小分枝的宽度
+            branchWidth *= 0.7;
+            // 递归调用drawTree函数，产生新的分枝
+            for (var i = 0; i < subBranches; i++) {
+                newAngle = angle + rand() * maxAngle - maxAngle * 0.5;
+                newLength = length * (0.7 + rand() * 0.3);
+                drawTree(ctx, endX, endY, newLength, newAngle, newDepth, branchWidth);
+            }
+        };
+        window.onload = function (){
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            drawTree(ctx, 320, 470, 60, -Math.PI / 2, 12, 12);
+        };
+    </script>
+</head>
+<body>
+<div id="top_info">
+    <h1>画面的递归绘图实例——树</h1>
+    <div id="return_home">
+        <a target="_blank" title="返回到小天地,大世界,刘洋的博客" href="http://www.lyblog.net/" id="go_home">返回到“小天地,大世界”</a>
+        <a href="http://www.lyblog.net/?p=355" target="_blank" title="画布和递归绘图">返回到当前文章</a>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="main-con">
+    <canvas width="640" height="480" id="canvas">你的浏览器不支持绘图，请更新浏览器</canvas>
+</div>
+<div id="copyright">
+    <div id='cp-left'>
+        备案信息：      &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.lyblog.net/sitemap.html" target="_blank">网站地图</a><br/>
+        站点统计：<script src="http://s17.cnzz.com/stat.php?id=5162003&web_id=5162003" language="JavaScript"></script>
+    </div>
+    <div id="cp-right">
+        版权所有：<a href="http://www.lyblog.net/"> @LIUYANG</a> <br />
+        站长邮箱:LiuYang@lyblog.net
+    </div>
+</div>
+</body>
+</html>
